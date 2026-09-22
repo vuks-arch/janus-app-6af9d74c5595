@@ -1,1 +1,900 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>I need a website for the silver ornaments seller shop</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:system-ui,-apple-system,sans-serif;background:#0a0e1a;color:#e8ecf6}.c{text-align:center;padding:24px}h1{font-size:34px;margin:0 0 8px;letter-spacing:-.5px}p{color:#8b93a7;margin:4px 0}.t{margin-top:20px;font-size:12px;color:#5b6478}</style></head><body><div class="c"><h1>I need a website for the silver ornaments seller shop</h1><p>Edit index.html and push — it deploys automatically.</p><p class="t">Staged with Janus.</p></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silver Lining · Handcrafted Silver Ornaments</title>
+  <style>
+    /* ---------- RESET & GLOBAL ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #fafafc;
+      color: #1e1e2a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* ---------- COLOUR SCHEME ---------- */
+    :root {
+      --silver-light: #e6e9f0;
+      --silver-mid: #c0c8d8;
+      --silver-dark: #8b95a9;
+      --accent: #3e4a5e;
+      --accent-deep: #2a3240;
+      --gold-soft: #d9c8a9;
+      --white: #ffffff;
+      --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 20px 35px -8px rgba(0, 0, 0, 0.08), 0 8px 18px -6px rgba(0, 0, 0, 0.04);
+      --radius: 24px;
+      --radius-sm: 16px;
+    }
+
+    /* ---------- TYPOGRAPHY ---------- */
+    h1, h2, h3 {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 4.2rem);
+      line-height: 1.15;
+      color: var(--accent-deep);
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      color: var(--accent-deep);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #5b6579;
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ---------- LAYOUT ---------- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* ---------- HEADER / NAV ---------- */
+    .site-header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(192, 200, 216, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--accent-deep);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #b0b9cc, #e2e6f0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(145deg, #d0d8e8, #a8b2c8);
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: inset -2px -2px 6px rgba(255,255,255,0.7), inset 2px 2px 6px rgba(0,0,0,0.05), 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #3e4a5e;
+      font-weight: 450;
+      font-size: 1rem;
+      transition: color 0.2s;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: #1e1e2a;
+      border-bottom-color: var(--silver-dark);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent-deep);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn:hover {
+      background: #1f2632;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent-deep);
+      border: 1.5px solid var(--silver-mid);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--silver-light);
+      border-color: var(--silver-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 60px 0 80px;
+      background: linear-gradient(145deg, #f2f4f9 0%, #ffffff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(192, 200, 216, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(192, 200, 216, 0.3);
+      backdrop-filter: blur(4px);
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent-deep);
+      margin-bottom: 24px;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #4a5468;
+      margin: 24px 0 32px;
+      max-width: 500px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-ornament {
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 1/1;
+      background: linear-gradient(135deg, #eef1f8, #d9dfec);
+      border-radius: 50%;
+      box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.2), inset 0 -10px 20px rgba(255,255,255,0.8), inset 0 10px 20px rgba(0,0,0,0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-ornament::before {
+      content: '✦';
+      font-size: 8rem;
+      color: #b8c2d6;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      opacity: 0.8;
+    }
+
+    .hero-ornament::after {
+      content: '';
+      position: absolute;
+      width: 70%;
+      height: 70%;
+      border-radius: 50%;
+      border: 2px dashed rgba(139, 149, 169, 0.3);
+      animation: spin 40s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* ---------- SECTION HEADERS ---------- */
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header .section-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ---------- ABOUT / FEATURES ---------- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 32px 24px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid rgba(192, 200, 216, 0.2);
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      display: block;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.03));
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: var(--accent-deep);
+    }
+
+    .feature-card p {
+      color: #5b6579;
+      font-size: 0.98rem;
+    }
+
+    /* ---------- COLLECTIONS / GALLERY ---------- */
+    .collections {
+      background: #f5f7fc;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-item {
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      aspect-ratio: 1/1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid rgba(192, 200, 216, 0.2);
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-md);
+    }
+
+    .gallery-icon {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+      color: #b0b9cc;
+      filter: drop-shadow(0 6px 8px rgba(0,0,0,0.03));
+    }
+
+    .gallery-item h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--accent-deep);
+      margin-bottom: 6px;
+    }
+
+    .gallery-item p {
+      font-size: 0.85rem;
+      color: #7a8499;
+    }
+
+    /* ---------- TESTIMONIALS ---------- */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 32px 28px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(192, 200, 216, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      color: #3e4a5e;
+      font-style: italic;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(145deg, #d0d8e8, #b0b9cc);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: white;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .author-info strong {
+      display: block;
+      font-weight: 600;
+      color: var(--accent-deep);
+      font-size: 0.95rem;
+    }
+
+    .author-info span {
+      font-size: 0.85rem;
+      color: #7a8499;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact {
+      background: linear-gradient(145deg, #f2f4f9, #ffffff);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      color: var(--accent-deep);
+    }
+
+    .contact-info p {
+      color: #5b6579;
+      margin-bottom: 32px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 1rem;
+      color: #3e4a5e;
+    }
+
+    .contact-item span:first-child {
+      font-size: 1.4rem;
+      width: 32px;
+      text-align: center;
+    }
+
+    .contact-form {
+      background: var(--white);
+      padding: 36px 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(192, 200, 216, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent-deep);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #d0d8e8;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: #fafafc;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--silver-dark);
+      box-shadow: 0 0 0 3px rgba(139, 149, 169, 0.15);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      text-align: center;
+      padding: 14px;
+      font-size: 1rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .site-footer {
+      background: var(--accent-deep);
+      color: #c0c8d8;
+      padding: 48px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand .logo {
+      color: #eef1f8;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #9aa4b8;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      color: #eef1f8;
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col a {
+      color: #9aa4b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #eef1f8;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(192, 200, 216, 0.15);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: #7a8499;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .hero-ornament {
+        max-width: 280px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .hero {
+        padding: 40px 0 60px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span>Silver Lining</span>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#testimonials">Stories</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn">Visit Studio</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">✦ Handcrafted since 1998</div>
+          <h1>Silver ornaments that tell your story</h1>
+          <p>Timeless designs, ethically sourced silver, and a touch of artisan soul. Discover pieces made to be treasured for generations.</p>
+          <div class="hero-actions">
+            <a href="#collections" class="btn">Explore collections</a>
+            <a href="#about" class="btn btn-outline">Our craft</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-ornament"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / FEATURES -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Silver Lining</h2>
+          <p class="section-subtitle">Every piece is shaped by hand, polished to a whisper, and made to last a lifetime.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🪙</span>
+            <h3>925 Sterling Silver</h3>
+            <p>We use only certified sterling silver, nickel-free and hypoallergenic for sensitive skin.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔨</span>
+            <h3>Handcrafted detail</h3>
+            <p>Each ornament is individually forged, engraved, and finished by our master silversmiths.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🌿</span>
+            <h3>Ethical sourcing</h3>
+            <p>Recycled silver and conflict-free stones — beauty that respects people and planet.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🎁</span>
+            <h3>Lifetime care</h3>
+            <p>Complimentary polishing and repair for every piece you bring home from our studio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLECTIONS / GALLERY -->
+    <section id="collections" class="collections">
+      <div class="container">
+        <div class="section-header">
+          <h2>Signature collections</h2>
+          <p class="section-subtitle">From delicate everyday charms to statement heirlooms — find the piece that speaks to you.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <div class="gallery-icon">✨</div>
+            <h4>Celestial</h4>
+            <p>Stars, moons & cosmic whispers</p>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-icon">🌿</div>
+            <h4>Botanica</h4>
+            <p>Leaves, vines & hidden gardens</p>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-icon">🕊️</div>
+            <h4>Heritage</h4>
+            <p>Classic filigree & heirloom designs</p>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-icon">💫</div>
+            <h4>Modern Minimal</h4>
+            <p>Clean lines, bold simplicity</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2>Stories from our collectors</h2>
+          <p class="section-subtitle">Real words from people who wear Silver Lining every day.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-text">“The pendant I ordered for my daughter’s graduation is absolutely stunning. The detail is incredible — you can feel the craftsmanship.”</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">M</div>
+              <div class="author-info">
+                <strong>Maya Chen</strong>
+                <span>Collector since 2020</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">“I’ve bought silver from many places, but Silver Lining’s pieces have a weight and finish that feels truly luxurious. Worth every penny.”</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">J</div>
+              <div class="author-info">
+                <strong>James Whitfield</strong>
+                <span>Repeat customer</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">“Their customer service is as beautiful as their jewellery. They helped me resize a ring and even sent a handwritten note. Pure class.”</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">A</div>
+              <div class="author-info">
+                <strong>Amara Okafor</strong>
+                <span>Gifted a Heritage bracelet</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Visit our studio</h3>
+            <p>Come see the silver in person, or drop us a line — we’d love to help you find your perfect piece.</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <span>📍</span>
+                <span>42 Silver Street, Artisan Quarter, London E2 8HD</span>
+              </div>
+              <div class="contact-item">
+                <span>📞</span>
+                <span>+44 20 7946 0132</span>
+              </div>
+              <div class="contact-item">
+                <span>✉️</span>
+                <span>hello@silverlining.studio</span>
+              </div>
+              <div class="contact-item">
+                <span>🕒</span>
+                <span>Tue–Sat: 10am – 6pm · Sun: 12pm – 4pm</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form action="#" method="post">
+              <div class="form-group">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Eleanor Vance" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us what you're looking for..."></textarea>
+              </div>
+              <button type="submit" class="btn">Send message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-mark"></span>
+            <span>Silver Lining</span>
+          </div>
+          <p>Handcrafted silver ornaments made with intention, in the heart of London’s artisan quarter.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="#collections">Celestial</a></li>
+            <li><a href="#collections">Botanica</a></li>
+            <li><a href="#collections">Heritage</a></li>
+            <li><a href="#collections">Modern Minimal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">Our story</a></li>
+            <li><a href="#about">Craftsmanship</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Pinterest</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Journal</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Silver Lining Studio. All rights reserved.</span>
+        <span>Handmade with care in London</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
